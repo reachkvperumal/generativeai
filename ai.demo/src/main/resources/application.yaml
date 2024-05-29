@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ai.demo
+  ai:
+    openai:
+      api-key: ${AI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o
