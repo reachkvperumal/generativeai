@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="CONSOLE_LOG_PATTERN">
+            %clr{%d{ISO8601}} %clr{%5p} %clr{-} %clr{${sys:LOGGED_APPLICATION_NAME:-}[%2.36t]} %clr{${sys:LOG_CORRELATION_PATTERN:-}}{faint}%clr{%-4.40c{1.}}{cyan} %clr{:} %m%n%xwEx{80}
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}" charset="${sys:CONSOLE_LOG_CHARSET}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
