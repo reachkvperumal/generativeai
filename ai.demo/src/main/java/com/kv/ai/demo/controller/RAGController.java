@@ -22,6 +22,8 @@ import java.util.Optional;
 @RestController()
 public class RAGController {
 
+    //Retrieval-augmented generation (RAG)
+
     @Autowired
     private ChatClient chatClient;
 
