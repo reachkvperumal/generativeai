@@ -25,7 +25,7 @@ public class AIConfig {
     String[] tags = new String[]{"name", "author", "year"};
 
     @Bean
-    SimpleVectorStore simpleVectorStore(EmbeddingClient embeddingClient) {
+    public SimpleVectorStore simpleVectorStore(EmbeddingClient embeddingClient) {
         SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
         var vectorStoreFile = getVectorStoreFile();
         if (vectorStoreFile.exists()) {
