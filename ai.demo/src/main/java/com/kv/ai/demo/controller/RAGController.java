@@ -33,7 +33,7 @@ public class RAGController {
     @Value("classpath:/template/prompt.st")
     private Resource promptTemplate;
 
-    @GetMapping("/api/movie")
+    @GetMapping("/api/payload")
     @ResponseBody
     public String getPayloadDetails(@RequestParam Optional<String> query) {
         List<Document> similaritySearch = vectorStore.similaritySearch(SearchRequest.query(query.orElseGet(() -> "Galaxy")).withTopK(3));
