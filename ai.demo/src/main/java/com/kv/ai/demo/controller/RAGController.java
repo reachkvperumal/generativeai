@@ -39,7 +39,7 @@ public class RAGController {
         List<Document> similaritySearch = vectorStore.similaritySearch(SearchRequest.query(query.orElseGet(() -> "Galaxy")).withTopK(3));
         List<String> content = similaritySearch.stream().map(Document::getContent).toList();
         PromptTemplate template = new PromptTemplate(promptTemplate);
-        Map<String, Object> q = Map.of("input", query, "documents", String.join("\n", content));
-        return chatClient.call(template.create(q)).getResult().getOutput().getContent();
+        Map<String, Object> prompt = Map.of("input", query, "documents", String.join("\n", content));
+        return chatClient.call(template.create(prompt)).getResult().getOutput().getContent();
     }
 }
