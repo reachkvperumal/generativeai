@@ -35,7 +35,7 @@ public class RAGController {
 
     @GetMapping("/api/movie")
     @ResponseBody
-    public String getMovieDetails(@RequestParam Optional<String> query) {
+    public String getPayloadDetails(@RequestParam Optional<String> query) {
         List<Document> similaritySearch = vectorStore.similaritySearch(SearchRequest.query(query.orElseGet(() -> "Galaxy")).withTopK(3));
         List<String> content = similaritySearch.stream().map(Document::getContent).toList();
         PromptTemplate template = new PromptTemplate(promptTemplate);
