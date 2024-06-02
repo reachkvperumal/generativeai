@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Log4j2
@@ -39,9 +39,7 @@ public class RAGController {
         List<Document> similaritySearch = vectorStore.similaritySearch(SearchRequest.query(query.orElseGet(() -> "Galaxy")).withTopK(3));
         List<String> content = similaritySearch.stream().map(Document::getContent).toList();
         PromptTemplate template = new PromptTemplate(promptTemplate);
-        HashMap<String, Object> params = new HashMap<>();
-        params.put("input", query);
-        params.put("documents", String.join("\n", content));
-        return chatClient.call(template.create(params)).getResult().getOutput().getContent();
+        Map<String, Object> q = Map.of("input", query, "documents", String.join("\n", content));
+        return chatClient.call(template.create(q)).getResult().getOutput().getContent();
     }
 }
