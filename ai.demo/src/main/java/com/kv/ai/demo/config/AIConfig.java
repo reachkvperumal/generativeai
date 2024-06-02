@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Configuration
@@ -22,29 +21,23 @@ public class AIConfig {
 
     private final static String vectorStoreName = "vectorstore.json";
 
-    String[] tags = new String[]{"name", "author", "year"};
+    private final static File FILE_NAME = new File(Paths.get("src", "main", "resources", "data")
+            .toFile().getAbsolutePath() + File.separator + vectorStoreName);
+
+    private final static String[] tags = new String[]{"name", "author", "year"};
 
     @Bean
     public SimpleVectorStore simpleVectorStore(EmbeddingClient embeddingClient) {
         SimpleVectorStore simpleVectorStore = new SimpleVectorStore(embeddingClient);
-        var vectorStoreFile = getVectorStoreFile();
-        if (vectorStoreFile.exists()) {
+        if (FILE_NAME.exists()) {
             log.info("Vector Store File Exists,");
-            simpleVectorStore.load(vectorStoreFile);
+            simpleVectorStore.load(FILE_NAME);
         } else {
             log.info("Vector Store File Not Exists, loading...");
             simpleVectorStore.add(new JsonReader(data, tags).get());
-            simpleVectorStore.save(vectorStoreFile);
+            simpleVectorStore.save(FILE_NAME);
         }
         return simpleVectorStore;
 
     }
-
-    private File getVectorStoreFile() {
-        Path path = Paths.get("src", "main", "resources", "data");
-        String absolutePath = path.toFile().getAbsolutePath() + "/" + vectorStoreName;
-        return new File(absolutePath);
-    }
-
-
 }
