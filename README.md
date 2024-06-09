@@ -3,4 +3,4 @@
 
 _Types of AI_
 
-![TypesOfAI.png](TypesOfAI.png)
+![TypesOfAI.png](ai.demo/TypesOfAI.png)
