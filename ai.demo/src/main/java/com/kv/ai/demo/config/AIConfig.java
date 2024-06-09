@@ -21,7 +21,7 @@ public class AIConfig {
 
     private final static String vectorStoreName = "txCredit.json";
 
-    private final static File FILE_NAME = new File(Paths.get("ai.demo","src", "main", "resources", "data")
+    private final static File FILE_NAME = new File(Paths.get("src", "main", "resources", "data")
             .toFile().getAbsolutePath() + File.separator + vectorStoreName);
 
     private final static String[] tags = new String[]{"name", "author", "year"};
