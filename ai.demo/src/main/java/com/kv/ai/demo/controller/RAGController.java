@@ -5,7 +5,10 @@ import com.kv.ai.demo.dto.TickerResp;
 import com.kv.ai.demo.service.YahooSvc;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvisor;
+import org.springframework.ai.chat.client.advisor.PromptChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,7 @@ public class RAGController {
                         """)
                 .defaultAdvisors(
                         new QuestionAnswerAdvisor(vectorStore, SearchRequest.defaults()))
+                .defaultAdvisors(new PromptChatMemoryAdvisor(new InMemoryChatMemory()))
                 .defaultFunctions("tickerFunction")
                 .build();
     }
@@ -52,9 +56,11 @@ public class RAGController {
         PromptTemplate template = new PromptTemplate(promptTemplate);
         // Map<String, Object> prompt = Map.of("input", query, "documents", String.join("\n", content));
         return chatClient.prompt(template.create(), OpenAiChatOptions.builder().withFunction("tickerFunction").build()).call().chatResponse().getResult().getOutput().getContent();*/
+
         return chatClient
                 .prompt()
                 .user(query.orElseGet(() -> "AMAZON"))
+                .advisors(a -> a.param(AbstractChatMemoryAdvisor.CHAT_MEMORY_CONVERSATION_ID_KEY,"KV"))
                 .stream()
                 .content();
     }
