@@ -7,3 +7,12 @@ spring:
       chat:
         options:
           model: gpt-4o
+  threads:
+    virtual:
+      enabled: true
+
+yahoo:
+  url: https://yahoo-finance127.p.rapidapi.com
+  key: ${YAHOO_API_KEY}
+  header_host: yahoo-finance127.p.rapidapi.com
+  param: "/key-statistics/%s"

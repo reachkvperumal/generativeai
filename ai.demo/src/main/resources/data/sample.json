@@ -1,57 +1,52 @@
 [
   {
-    "name": "Dune",
-    "author": "Frank Herbert",
-    "year": "1965"
+    "date": "2020-01-01",
+    "description": "Membership Fee",
+    "amount": "695.00"
   },
   {
-    "name": "Ender's Game",
-    "author": "Orson Scott Card",
-    "year": "1985"
+    "date": "2020-01-02",
+    "description": "AplPay ADIDAS AMERICA, INC",
+    "amount": "5.00"
   },
   {
-    "name": "1984",
-    "author": "George Orwell",
-    "year": "1949"
+    "date": "2020-01-03",
+    "description": "AplPay GOFUNDME IN LOVING MEMORY OF UMASHA",
+    "amount": "26.00"
   },
   {
-    "name": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adams",
-    "year": "1979"
+    "date": "2020-01-04",
+    "description": "DUNKIN #342027 Q35 3420",
+    "amount": "14.76"
   },
   {
-    "name": "Brave New World",
-    "author": "Aldous Huxley",
-    "year": "1932"
+    "date": "2020-01-05",
+    "description": "AplPay SUNGLASS HUT 3027 3027",
+    "amount": "362.32"
   },
   {
-    "name": "Foundation",
-    "author": "Isaac Asimov",
-    "year": "1951"
+    "date": "2020-01-06",
+    "description": "AplPay UNDER ARMOUR JACKSON 0001",
+    "amount": "63.36"
   },
   {
-    "name": "Neuromancer",
-    "author": "William Gibson",
-    "year": "1984"
+    "date": "2020-01-07",
+    "description": "SHOPRITE SOUTH BRUNS",
+    "amount": "12.28"
   },
   {
-    "name": "Snow Crash",
-    "author": "Neal Stephenson",
-    "year": "1992"
+    "date": "2020-01-08",
+    "description": "AMAZON PRIME*QE4JF24M3",
+    "amount": "10.66"
   },
   {
-    "name": "The Martian",
-    "author": "Andy Weir",
-    "year": "2011"
+    "date": "2020-01-09",
+    "description": "EXPRESS SCRIPTS 800-332-5455",
+    "amount": "16.70"
   },
   {
-    "name": "Ready Player One",
-    "author": "Ernest Cline",
-    "year": "2011"
-  },
-  {
-    "name": "Top Gun",
-    "author": "Ehud Yonay",
-    "year": "1985"
+    "date": "2020-01-10",
+    "description": "New Charges",
+    "amount": "180.06"
   }
 ]
