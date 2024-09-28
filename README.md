@@ -4,3 +4,5 @@
 _Types of AI_
 
 ![TypesOfAI.png](ai.demo/TypesOfAI.png)
+
+ServletBearerExchangeFilterFunction DelegatingSecurityContextAsyncTaskExecutor
